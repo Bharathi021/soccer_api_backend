@@ -14,7 +14,7 @@ create_table()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://soccer-api-frontend.onrender.com"],
     allow_methods=["*"],
     allow_headers=["*"]
 )
