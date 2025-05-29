@@ -14,7 +14,7 @@ create_table()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["soccer-react-frontend-git-main-bharathi021s-projects.vercel.app"],
+    allow_origins=["soccer-react-frontend.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"]
 )
