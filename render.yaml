@@ -9,14 +9,22 @@ services:
     envVars:
       - key: DB_HOST
         sync: false
+        # Set this to your Render Postgres HOST (from Render dashboard)
+      - key: DB_PORT
+        sync: false
+        # Usually 5432 for postgres
       - key: DB_USER
         sync: false
+        # Your Render Postgres username
       - key: DB_PASS
         sync: false
+        # Your Render Postgres password
       - key: DB_NAME
         sync: false
+        # Your Render Postgres database name
       - key: API_KEY
         sync: false
+        # Your football-data.org API key
 
   - type: web
     name: sports-orca-frontend

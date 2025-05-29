@@ -21,6 +21,8 @@ app.add_middleware(
 API_URL = "https://api.football-data.org/v4/matches"
 
 API_KEY = os.getenv("API_KEY")
+if not API_KEY:
+    raise ValueError("API_KEY not found in environment variables!")
 
 HEADERS = {"X-Auth-Token":API_KEY}
 
@@ -28,6 +30,8 @@ HEADERS = {"X-Auth-Token":API_KEY}
 
 def fetch_matches():
     response = requests.get(API_URL,headers=HEADERS)
+    if response.status_code != 200:
+        return {"error": "Failed to fetch match data", "status_code": response.status_code}
     data = response.json()
     upcoming = []
 

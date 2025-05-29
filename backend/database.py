@@ -1,13 +1,14 @@
-import mysql.connector # type: ignore
+import psycopg2 # type: ignore
 import os
 from dotenv import load_dotenv # type: ignore
 
 load_dotenv
 
 def get_connection():
-    return mysql.connector.connect(
-        host=os.getenv("MYSQL_HOST"),
-        user=os.getenv("MYSQL_USER"),
-        password=os.getenv("MYSQL_PASSWORD"),
-        database=os.getenv("MYSQL_DATABASE")
+    return psycopg2.connect(
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        dbname=os.getenv("DB_NAME")
     )
